@@ -124,3 +124,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'authentification.AuthToken'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated'
+        ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'authentification.backends.JWTAuthentication',
+        )
+}
