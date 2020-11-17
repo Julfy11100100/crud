@@ -41,20 +41,20 @@ class JWTAuthentication(authentication.BaseAuthentication):
 
     def _authenticate_credentials(self, request, token):
         """
-        Try to authenticate the given credentials. If authentication is
-        successful, return the user and token. If not, throw an error.
+        Если аутентификация прошла успешно,
+        возвращает пользователя и токен. Если нет, то выдает ошибку.
         """
         #import pdb; pdb.set_trace()
         try:
             payload = jwt.decode(jwt=token, key=settings.SECRET_KEY)
         except:
-            msg = 'Invalid authentication. Could not decode token.'
+            msg = 'Неверная аутентификация. Не удалось декодировать токен.'
             raise exceptions.AuthenticationFailed(msg)
 
         try:
             user = AuthToken.objects.get(pk=payload['id'])
         except AuthToken.DoesNotExist:
-            msg = 'No user matching this token was found.'
+            msg = 'User не найден'
             raise exceptions.AuthenticationFailed(msg)
 
         return (user, token)

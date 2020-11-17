@@ -57,6 +57,7 @@ class AuthToken(AbstractBaseUser, PermissionsMixin):
         составляет 60 дней в будущем.
         """
         dt = datetime.now() + timedelta(days=60)
+        #import pdb; pdb.set_trace()
         token = jwt.encode({
             'id': self.pk,
             'exp': int(dt.timestamp())
