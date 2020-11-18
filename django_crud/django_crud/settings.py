@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'authentification',
     'api',
+    'frontend',
     'rest_framework',
 
 ]
