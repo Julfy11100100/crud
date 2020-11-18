@@ -40,7 +40,7 @@ def api_user_get(request, pk):
 
 @api_view(['PUT'])
 @permission_classes([AllowAny])
-def api_user_update_post(request, pk):
+def api_user_update_put(request, pk):
     try:
         user = User.objects.get(id=pk)
         serializer = UserSerializer(instance=user, data=request.data)
