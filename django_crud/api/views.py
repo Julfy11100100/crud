@@ -1,6 +1,6 @@
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
 from .models import User
@@ -8,7 +8,7 @@ from .serializers import UserSerializer
 
 
 @api_view(['GET'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def api_users_list(request):
     try:
         users = User.objects.all().order_by('-id')
@@ -19,7 +19,7 @@ def api_users_list(request):
 
 
 @api_view(['POST'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def api_users_create(request):
     serializer = UserSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
@@ -28,7 +28,7 @@ def api_users_create(request):
 
 
 @api_view(['GET'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def api_user_get(request, pk):
     try:
         user = User.objects.get(id=pk)
@@ -39,8 +39,8 @@ def api_user_get(request, pk):
 
 
 @api_view(['PUT'])
-@permission_classes([AllowAny])
-def api_user_update_post(request, pk):
+@permission_classes([IsAuthenticated])
+def api_user_update_put(request, pk):
     try:
         user = User.objects.get(id=pk)
         serializer = UserSerializer(instance=user, data=request.data)
@@ -51,8 +51,9 @@ def api_user_update_post(request, pk):
     except User.DoesNotExist:
         return Response({'Error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
 
+
 @api_view(['PATCH'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def api_user_update_patch(request, pk):
     try:
         user = User.objects.get(id=pk)
@@ -66,11 +67,11 @@ def api_user_update_patch(request, pk):
 
 
 @api_view(['DELETE'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def api_user_delete(request, pk):
     try:
         user = User.objects.get(id=pk)
         user.delete()
-        return Response('User was successfully deleted')
+        return Response({'User was successfully deleted'}, status=status.HTTP_200_OK)
     except User.DoesNotExist:
         return Response({'Error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)

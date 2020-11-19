@@ -1,0 +1,248 @@
+/*ОБНУЛЕНИЕ*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*-----ОБНУЛЕНИЕ конец-------*/
+
+body {
+	min-width: 1200px;
+	background: linear-gradient( #bbb, transparent 1px), linear-gradient( 90deg, #bbb, transparent 1px);
+	background-size: 20px 20px;
+	background-position: center center;
+}
+
+.container {
+	width: 1200px;
+	margin: 0px auto;
+}
+
+.container > .main-block{
+	margin-top: 100px;
+}
+
+.container > .main-block ~ .main-block{
+	margin-top: 5px;
+}
+
+
+/*-----main-block------------*/
+
+
+.main-block {
+	width: 1200px;
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+
+.auth {
+	width: 100%;
+	display: flex;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 3px solid  #000000;
+	border-radius: 20px;
+	background: red;
+}
+
+.token-btn {
+	width: 10%;
+	margin-top: 5px;
+	margin-left: 10px;
+	border: 1px solid  #000000;
+	border-radius: 20px;
+	text-align: center;
+	font-size: 15px;
+	padding: 5px;
+	cursor: pointer;
+	background: green;
+}
+
+
+.token-input {
+	width: 250px;
+	border: 1px solid  #000000;
+	border-radius: 20px; 
+	padding: 5px;
+}
+
+.main-block-header {
+	width: 100%;
+	display: flex;
+	margin: 0 auto;
+	padding: 10px;
+	border: 3px solid  #000000;
+	border-radius: 20px;
+	cursor: pointer;
+	background: #FF7373;
+}
+
+.method {
+	width: 10%;
+	margin-top: 5px;
+	margin-left: 10px;
+	border: 1px solid  #000000;
+	border-radius: 20px; 
+	background: #FFFFFF;
+}
+
+.method span {
+	display: block;
+	text-align: center;
+	font-size: 25px;
+	padding: 5px;
+}
+
+.api {
+	width: 50%;
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+.api span {
+	display: block;
+	font-size: 30px;
+}
+
+.main-block-body {
+	width: 100%;
+	margin: 0 auto;
+	background: grey;
+	margin-bottom: 20px;
+	padding-bottom: 50px;
+	display: none;
+	background: #FF7373;
+	border: 3px solid  #000000;
+	border-radius: 0px 0px 20px 20px;
+	-webkit-border-radius: 0px 0px 20px 20px;
+	-moz-border-radius: 0px 0px 20px 20px;
+}
+
+.parameters {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+}
+
+.edit-value {
+	width: 40%;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+
+.edit-value h3 {
+	display: block;
+	text-align: center;
+	font-size: 30px;
+}
+
+.edit-value textarea{
+	margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	height: 400px;
+	border: 1px solid  #000000;
+}
+
+.edit-value button {
+	margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid  #000000;
+	border-radius: 20px; 
+}
+
+.input-number {
+	margin-top: 10px;
+	margin-left: 100px;
+	width: 50%;
+	padding: 10px;
+	border: 1px solid  #000000;
+}
+
+.responses-data {
+	width: 40%;
+	margin-top: 20px;
+	margin-left: 150px;
+
+}
+
+.responses-data h3 {
+	display: block;
+	text-align: center;
+	font-size: 30px;
+}
+
+.response-area {
+	margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	height: 400px;
+	word-wrap: break-word;
+	overflow: auto;
+	background: white;
+	border: 1px solid  #000000;
+	font-size: 20px;
+}
+
+
+.responses {
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 100%;
+	font-size: 25px;
+}
+
+.curl-request {
+	margin: 20px 20px;
+}
+
+.curl-request h3 {
+	font-size: 30px;
+}
+
+.curl-request span {
+	display: block;
+	background: black;
+	color: white;
+	padding: 15px;
+	border: 1px solid  #000000;
+	border-radius: 20px;
+	margin-top: 20px;
+}
+
+/*-----main-block конец-------*/
+

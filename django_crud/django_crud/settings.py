@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'authentification',
+    'authentication',
     'api',
+    'frontend',
     'rest_framework',
 
 ]
@@ -124,13 +125,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH_USER_MODEL = 'authentification.AuthToken'
+AUTH_USER_MODEL = 'authentication.AuthToken'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated'
         ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'authentification.backends.JWTAuthentication',
+        'authentication.backends.JWTAuthentication',
         )
 }
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
