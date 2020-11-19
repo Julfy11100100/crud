@@ -51,6 +51,7 @@ def api_user_update_put(request, pk):
     except User.DoesNotExist:
         return Response({'Error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
 
+
 @api_view(['PATCH'])
 @permission_classes([AllowAny])
 def api_user_update_patch(request, pk):
