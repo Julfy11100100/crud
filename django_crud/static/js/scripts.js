@@ -46,7 +46,7 @@ $(document).ready(function(){
 		var token = "";
 		if ($(".token-input").prop("disabled") == true) {
 			token = $(".token-input").val();
-		}
+		};
 
 		// GET TOKEN
 		if (btn.attr("id") == "auth-get-token"){

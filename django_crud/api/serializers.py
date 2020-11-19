@@ -28,12 +28,12 @@ class UserSerializer(serializers.ModelSerializer):
 
         if not re.match('^[\\w.@+-]+$', username):
             raise serializers.ValidationError(
-                'Некорректные данные поля username.'
+                'Некорректные данные поля username. patten ^[\\w.@+-]+$.'
             )
 
         if not re.match('^(?=.*[A-Z])(?=.*\\d).{8,}$', password):
             raise serializers.ValidationError(
-                'Некорректные данные поля password.'
+                'Некорректные данные поля password. pattern ^(?=.*[A-Z])(?=.*\\d).{8,}$.'
             )
 
         return data
