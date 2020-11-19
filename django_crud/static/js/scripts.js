@@ -4,15 +4,50 @@ $(document).ready(function(){
 		var block = $(this).parent(".main-block").find(".main-block-body");
 		if (block.css("display") == "none"){
 			block.css("display", "block");
+			$(this).css({
+				'border-radius': '20px 20px 0px 0px',
+				'-webkit-border-radius': '20px 20px 0px 0px',
+				'-moz-border-radius': '20px 20px 0px 0px'
+			});
 		}
 		else {
 			block.css("display", "none");
+			$(this).css({
+				'border-radius': '20px',
+				'-webkit-border-radius': '20px',
+				'-moz-border-radius': '20px'
+			});
 		}
+	});
+
+	$(".token-btn").click(function(){
+
+		var input = $(this).parent(".auth").find(".token-input");
+
+		if (input.prop("disabled") == true) {
+			input.prop("disabled", false);
+			$(this).css("background", "green");
+			$(this).text("upload token");
+			$(this).parent(".auth").css("background", "red");
+		}
+		else {
+			input.prop("disabled", true);
+			$(this).css("background", "red");
+			$(this).text("another token");
+			$(this).parent(".auth").css("background", "green");
+		}
+
 	});
 
 
 	$(".execute-btn").click(function(){
+
 		var btn = $(this);
+		var token = "";
+		if ($(".token-input").prop("disabled") == true) {
+			token = $(".token-input").val();
+		}
+
 		// GET TOKEN
 		if (btn.attr("id") == "auth-get-token"){
 
@@ -56,7 +91,8 @@ $(document).ready(function(){
   				"method": "GET",
   				"timeout": 0,
   				"headers": {
-  				  "Content-Type": "application/json"
+  				  "Content-Type": "application/json",
+  				  "Authorization": "Bearer " + token
   				},
   				error: function(xhr, status, error) {
   					response_area.text(xhr.responseText);
@@ -87,7 +123,8 @@ $(document).ready(function(){
   					"method": "POST",
   					"timeout": 0,
   					"headers": {
-  					  "Content-Type": "application/json"
+  					  "Content-Type": "application/json",
+  					  "Authorization": "Bearer " + token
   					},
   					"data": JSON.stringify(new_data),
   					error: function(xhr, status, error) {
@@ -114,7 +151,8 @@ $(document).ready(function(){
   					"method": "GET",
   					"timeout": 0,
   					"headers": {
-  					  "Content-Type": "application/json"
+  					  "Content-Type": "application/json",
+  					  "Authorization": "Bearer " + token
   					},
   					error: function(xhr, status, error) {
   						response_area.text(xhr.responseText);
@@ -149,7 +187,8 @@ $(document).ready(function(){
   					"method": "PUT",
   					"timeout": 0,
   					"headers": {
-  					  "Content-Type": "application/json"
+  					  "Content-Type": "application/json",
+  					  "Authorization": "Bearer " + token
   					},
   					"data": JSON.stringify(new_data),
   					error: function(xhr, status, error) {
@@ -184,7 +223,8 @@ $(document).ready(function(){
   					"method": "PATCH",
   					"timeout": 0,
   					"headers": {
-  					  "Content-Type": "application/json"
+  					  "Content-Type": "application/json",
+  					  "Authorization": "Bearer " + token
   					},
   					"data": JSON.stringify(new_data),
   					error: function(xhr, status, error) {
@@ -211,7 +251,8 @@ $(document).ready(function(){
   					"method": "DELETE",
   					"timeout": 0,
   					"headers": {
-  					  "Content-Type": "application/json"
+  					  "Content-Type": "application/json",
+  					  "Authorization": "Bearer " + token
   					},
   					error: function(xhr, status, error) {
   						response_area.text(xhr.responseText);

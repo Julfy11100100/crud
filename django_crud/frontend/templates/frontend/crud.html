@@ -10,6 +10,12 @@
 <body>
 	<div class="container">
 		<div class="main-block">
+			<div class="auth">
+				<div class="token-btn"><span>upload token</span></div>
+				<div class="api"><input type="textarea" class="token-input"></div>
+			</div>
+
+		<div class="main-block">
 			<div class="main-block-header" id="get-token">
 				<div class="method"><span>POST</span></div>
 				<div class="api"><span>/auth/get-token/</span></div>
@@ -18,9 +24,11 @@
 				<div class="parameters">
 					<div class="edit-value">
 						<h3>parameters</h3>
-						<textarea name="" id="request-area" >
-							
-						</textarea>
+						<textarea name="" id="request-area" placeholder='
+						{
+						  "username": "string",
+						  "password": "string"
+						}'></textarea>
 						<button class="execute-btn" id="auth-get-token">Execute</button>
 					</div>
 					<div class="responses-data">
@@ -69,9 +77,14 @@
 				<div class="parameters">
 					<div class="edit-value">
 						<h3>parameters</h3>
-						<textarea name="" id="request-area" >
-							
-						</textarea>
+						<textarea id="request-area" placeholder='
+						{
+						  "username": "string",
+						  "first_name": "string",
+						  "last_name": "string",
+						  "password": "string",
+						  "is_active": true
+						}'></textarea>
 						<button class="execute-btn" id="api-user-create">Execute</button>
 					</div>
 					<div class="responses-data">
@@ -121,9 +134,14 @@
 				<div class="parameters">
 					<div class="edit-value">
 						<h3>parameters</h3>
-						<textarea name="" id="request-area" >
-							
-						</textarea>
+						<textarea name="" id="request-area" placeholder='
+						{
+						  "username": "string",
+						  "first_name": "string",
+						  "last_name": "string",
+						  "password": "string",
+						  "is_active": true
+						}'></textarea>
 						<input type="number" class="input-number" min="1">
 						<button class="execute-btn" id="api-user-update-put">Execute</button>
 					</div>
@@ -149,9 +167,14 @@
 				<div class="parameters">
 					<div class="edit-value">
 						<h3>parameters</h3>
-						<textarea name="" id="request-area" >
-							
-						</textarea>
+						<textarea name="" id="request-area" placeholder='
+						{
+						  "username": "string",
+						  "first_name": "string",
+						  "last_name": "string",
+						  "password": "string",
+						  "is_active": true
+						}'></textarea>
 						<input type="number" class="input-number" min="1">
 						<button class="execute-btn" id="api-user-update-patch">Execute</button>
 					</div>
